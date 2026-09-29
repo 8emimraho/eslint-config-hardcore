@@ -1,4 +1,6 @@
 {
+  "$schema": "https://json.schemastore.org/eslintrc.json",
+
   "parser": "@typescript-eslint/parser",
 
   "plugins": [
@@ -6,18 +8,20 @@
     "sort-class-members",
     "decorator-position",
     "@shopify",
-    "etc"
+    "etc",
+    "typescript-compat"
   ],
 
   "rules": {
     "require-await": "off",
     "@typescript-eslint/require-await": "error",
-
-    "no-return-await": "off",
     "@typescript-eslint/return-await": ["error", "always"],
 
     "no-throw-literal": "off",
     "@typescript-eslint/no-throw-literal": "error",
+
+    "prefer-promise-reject-errors": "off",
+    "@typescript-eslint/prefer-promise-reject-errors": "error",
 
     "no-void": ["error", { "allowAsStatement": true }],
     "@typescript-eslint/no-floating-promises": "error",
@@ -51,8 +55,12 @@
     "@typescript-eslint/restrict-template-expressions": [
       "error",
       {
+        "allowAny": true,
         "allowNumber": true,
-        "allowAny": true
+
+        "allowBoolean": false,
+        "allowNullish": false,
+        "allowRegExp": false
       }
     ],
 
@@ -63,7 +71,7 @@
         "format": ["strictCamelCase"]
       },
       {
-        "selector": "function",
+        "selector": ["function", "import"],
         "format": ["strictCamelCase", "StrictPascalCase"]
       },
       {
@@ -194,18 +202,19 @@
     "import/no-deprecated": "off",
     "etc/no-deprecated": "error",
 
-    "sonar/argument-type": "off",
-    "sonar/no-associative-arrays": "off",
-    "sonar/no-invalid-await": "off",
-    "sonar/operation-returning-nan": "off",
-    "sonar/values-not-convertible-to-numbers": "off",
-    "sonar/class-prototype": "off",
-    "sonar/no-for-in-iterable": "off",
-    "sonar/non-number-in-arithmetic-expression": "off",
-    "sonar/null-dereference": "off",
-    "sonar/in-operator-type-error": "off",
-    "sonar/no-incorrect-string-concat": "off",
-    "sonar/no-misleading-array-reverse": "off",
+    "typescript-compat/compat": "error",
+
+    "sonarjs/argument-type": "off",
+    "sonarjs/no-associative-arrays": "off",
+    "sonarjs/operation-returning-nan": "off",
+    "sonarjs/values-not-convertible-to-numbers": "off",
+    "sonarjs/class-prototype": "off",
+    "sonarjs/no-for-in-iterable": "off",
+    "sonarjs/non-number-in-arithmetic-expression": "off",
+    "sonarjs/null-dereference": "off",
+    "sonarjs/in-operator-type-error": "off",
+    "sonarjs/no-incorrect-string-concat": "off",
+    "sonarjs/no-misleading-array-reverse": "off",
 
     "react/sort-comp": "off"
   }

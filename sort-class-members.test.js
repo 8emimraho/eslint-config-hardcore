@@ -1,5 +1,5 @@
 /* eslint-disable
-  fp/no-class,
+  functional/no-classes,
   no-empty-function,
   no-useless-constructor,
   @typescript-eslint/naming-convention,
@@ -7,7 +7,6 @@
   getter-return,
   accessor-pairs,
   no-undef,
-  sonar/no-accessor-field-mismatch,
 */
 
 // eslint-disable-next-line import/no-unused-modules

@@ -1,4 +1,6 @@
 {
+  "$schema": "https://json.schemastore.org/eslintrc.json",
+
   "overrides": [
     {
       "files": ["*.vue", "*.js", "*.jsx", "*.ts", "*.tsx"],
@@ -8,7 +10,7 @@
         "plugin:vue/vue3-essential"
       ],
 
-      "plugins": ["import", "@typescript-eslint", "sonar"],
+      "plugins": ["import", "@typescript-eslint", "sonarjs"],
 
       "parserOptions": {
         "parser": "@typescript-eslint/parser",
@@ -17,7 +19,7 @@
       },
 
       "rules": {
-        "vue/component-tags-order": "error",
+        "vue/block-order": "error",
         "vue/no-lone-template": "error",
         "vue/no-multiple-slot-args": "error",
         "vue/no-v-html": "error",
@@ -32,7 +34,6 @@
         "vue/require-default-prop": "error",
         "vue/require-explicit-emits": "error",
         "vue/require-prop-types": "error",
-        "vue/v-bind-style": "error",
         "vue/v-on-style": "error",
         "vue/v-slot-style": "error",
 
@@ -48,12 +49,15 @@
         "vue/new-line-between-multi-line-property": "error",
         "vue/next-tick-style": "error",
         "vue/no-boolean-default": "error",
+        "vue/no-deprecated-model-definition": "error",
         "vue/no-duplicate-attr-inheritance": "error",
         "vue/no-empty-component-block": "error",
         "vue/no-multiple-objects-in-class": "error",
         "vue/no-static-inline-styles": "error",
         "vue/no-template-target-blank": "error",
         "vue/no-this-in-before-route-enter": "error",
+        "vue/no-unused-emit-declarations": "error",
+        "vue/no-use-v-else-with-v-for": "error",
         "vue/no-useless-mustaches": "error",
         "vue/no-useless-v-bind": "error",
         "vue/no-v-text": "error",
@@ -63,17 +67,19 @@
         "vue/prefer-true-attribute-shorthand": "error",
         "vue/require-direct-export": "error",
         "vue/require-emit-validator": "error",
+        "vue/require-explicit-slots": "error",
         "vue/require-expose": "error",
         "vue/require-macro-variable-name": "error",
         "vue/require-name-property": "error",
+        "vue/require-typed-object-prop": "error",
         "vue/require-typed-ref": "error",
         "vue/v-for-delimiter-style": "error",
         "vue/v-on-handler-style": "error",
-        "vue/no-ref-object-destructure": "error",
-        "vue/define-emits-declaration": "error",
+        "vue/no-ref-object-reactivity-loss": "error",
         "vue/define-props-declaration": "error",
         "vue/padding-lines-in-component-definition": "error",
         "vue/no-root-v-if": "error",
+        "vue/no-setup-props-reactivity-loss": "error",
         "vue/prefer-define-options": "error",
         "vue/valid-define-options": "error",
         "vue/static-class-names-order": "error",
@@ -89,16 +95,24 @@
         "vue/no-useless-concat": "error",
         "vue/object-shorthand": "error",
         "vue/prefer-template": "error",
+        "vue/require-default-export": "error",
+        "vue/no-deprecated-delete-set": "error",
+        "vue/prefer-use-template-ref": "error",
+        "vue/slot-name-casing": "error",
+        "vue/no-implicit-coercion": "error",
 
         "vue/define-macros-order": [
           "error",
           {
             "order": [
+              "definePage",
               "defineOptions",
+              "defineModel",
               "defineProps",
               "defineEmits",
               "defineSlots"
-            ]
+            ],
+            "defineExposeLast": true
           }
         ],
         "vue/v-on-event-hyphenation": ["error", "always", { "autofix": true }],
@@ -117,8 +131,18 @@
         "vue/no-irregular-whitespace": ["error", { "skipStrings": false }],
         "vue/no-required-prop-with-default": ["error", { "autofix": true }],
         "vue/attributes-order": ["error", { "alphabetical": true }],
+        "vue/define-emits-declaration": ["error", "type-literal"],
+        "vue/enforce-style-attribute": [
+          "error",
+          { "allow": ["scoped", "module"] }
+        ],
+        "vue/v-bind-style": [
+          "error",
+          "shorthand",
+          { "sameNameShorthand": "always" }
+        ],
 
-        "sonar/no-vue-bypass-sanitization": "error",
+        "sonarjs/no-vue-bypass-sanitization": "error",
 
         "import/no-unused-modules": "off",
         "import/no-anonymous-default-export": "off",
@@ -153,22 +177,6 @@
         "vue-scoped-css/enforce-style-type": [
           "error",
           { "allows": ["scoped", "module"] }
-        ],
-
-        "lines-around-comment": "off",
-        "@typescript-eslint/lines-around-comment": [
-          "error",
-          {
-            "beforeBlockComment": true,
-            "beforeLineComment": false,
-            "allowBlockStart": true,
-            "allowObjectStart": true,
-            "allowArrayStart": true,
-            "allowClassStart": true,
-
-            "allowInterfaceStart": true,
-            "allowTypeStart": true
-          }
         ],
 
         "import/no-anonymous-default-export": [
